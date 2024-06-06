@@ -1,12 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
-import { Comic, ComicDetail, ReadChapter } from './components'
+import { MainView, ComicDetailView, ReadingView } from "./views";
 
 const AppRoutes = () => {
     return (
         <Routes>
-            <Route path="/" element={<Comic />} />
-            <Route path="/comic/:comicId" element={<ComicDetail />} />
-            <Route path="/comic/chapter/:chapterId" element={<ReadChapter />} />
+            <Route path="/" element={<MainView />} />
+            <Route path="/comic/:comicId" element={<ComicDetailView />} />
+            <Route path="/comic/:comicId/chapter/:chapterId" element={<ReadingView />} />
         </Routes>
     )
 }

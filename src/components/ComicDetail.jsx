@@ -26,11 +26,15 @@ const ComicDetail = () => {
     }, [comicId]);
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return (
+            <div className="flex h-screen items-center justify-center">
+                <span className="loading loading-dots loading-lg"></span>
+            </div>
+        );
     }
 
     return (
-        <>
+        <div className="p-10 pt-2">
             <div className="card lg:card-side bg-base-100 shadow-xl">
                 <figure><img src={comic.thumbnailUrl} className="w-64 h-96"
                              alt="Album"/></figure>
@@ -45,22 +49,22 @@ const ComicDetail = () => {
                             <h2 key={genre.id} className="badge badge-accent mr-4">{genre.name}</h2>
                         ))}
                     </div>
-                    <h2 className="font-normal text-left w-[800px]">
+                    <h2 className="font-normal text-left max-w-screen-xl">
                         {comic.description}
                     </h2>
                 </div>
             </div>
 
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col items-center">
                 {chapters.map(chapter => (
-                    <Link key={chapter.id} to={`/comic/chapter/${chapter.id}`}>
-                        <a className="btn btn-primary w-[400px] mt-4">
+                    <Link key={chapter.id} to={`/comic/${comicId}/chapter/${chapter.id}`}>
+                        <div className="btn btn-primary w-[500px] mt-4 justify-start">
                             Chapter {chapter.chapterNumber}: {chapter.title}
-                        </a>
+                        </div>
                     </Link>
                 ))}
             </div>
-        </>
+        </div>
     )
 }
 
