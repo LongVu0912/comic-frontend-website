@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const ChooseChapter = ({ chapterId, comicId }) => {
-    console.log(chapterId, comicId);
-
     const [chapterList, setChapterList] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -14,7 +12,7 @@ const ChooseChapter = ({ chapterId, comicId }) => {
                 setChapterList(data.result);
                 setIsLoading(false);
             });
-    });
+    }, [comicId]);
 
     if (isLoading) {
         return (

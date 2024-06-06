@@ -25,7 +25,7 @@ const Header = () => {
                     <div tabIndex={0} role="button" className="btn mr-4 btn-neutral rounded-lg">Theme</div>
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-[600px] grid grid-cols-5 gap-8">
                         {themes.map((theme, index) => (
-                            <li key={index}><a onClick={() => changeTheme(theme)}>{theme}</a></li>
+                            <li key={index}><a onClick={() => changeTheme(theme)}>{theme.charAt(0).toUpperCase() + theme.slice(1)}</a></li>
                         ))}
                     </ul>
                 </div>
